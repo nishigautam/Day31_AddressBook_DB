@@ -68,3 +68,23 @@ Rows matched: 1  Changed: 1  Warnings: 0
 mysql> DELETE FROM addressBook
     -> WHERE firstName = 'Nishi';
 Query OK, 1 row affected (0.01 sec)
+
+#usecase6
+
+mysql> SELECT * FROM addressBook
+    -> WHERE city = 'Abc';
++-----------+----------+---------+------+-------+---------+-------------+-------------------+
+| firstName | lastName | address | city | state | zipCode | phoneNumber | email             |
++-----------+----------+---------+------+-------+---------+-------------+-------------------+
+| Joey      | Joe      | Abcdef  | Abc  | ABC   |    7878 |  9875929865 | Joey123@gmail.com |
++-----------+----------+---------+------+-------+---------+-------------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM addressBook
+    -> WHERE state = 'PQR';
++-----------+----------+---------+------+-------+---------+-------------+-------------------+
+| firstName | lastName | address | city | state | zipCode | phoneNumber | email             |
++-----------+----------+---------+------+-------+---------+-------------+-------------------+
+| Chandler  | Bong     | Pkhda   | Pqr  | PQR   |    9862 |  8791824823 | Bong123@gmail.com |
++-----------+----------+---------+------+-------+---------+-------------+-------------------+
+1 row in set (0.00 sec)
