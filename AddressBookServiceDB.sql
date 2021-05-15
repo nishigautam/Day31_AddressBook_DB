@@ -62,3 +62,9 @@ mysql> UPDATE addressBook
     -> WHERE firstName = 'Pheebs';
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
+
+#usecase5
+
+mysql> DELETE FROM addressBook
+    -> WHERE firstName = 'Nishi';
+Query OK, 1 row affected (0.01 sec)
