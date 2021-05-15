@@ -88,3 +88,27 @@ mysql> SELECT * FROM addressBook
 | Chandler  | Bong     | Pkhda   | Pqr  | PQR   |    9862 |  8791824823 | Bong123@gmail.com |
 +-----------+----------+---------+------+-------+---------+-------------+-------------------+
 1 row in set (0.00 sec)
+
+#usecase7
+
+mysql> SELECT city, COUNT(city) FROM addressBook GROUP BY city;
++------+-------------+
+| city | COUNT(city) |
++------+-------------+
+| Pqr  |           1 |
+| Abc  |           1 |
+| Xyz  |           1 |
+| Mno  |           1 |
++------+-------------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT city, COUNT(state) FROM addressBook GROUP BY state;
++------+--------------+
+| city | COUNT(state) |
++------+--------------+
+| Pqr  |            1 |
+| Abc  |            1 |
+| Xyz  |            1 |
+| Mno  |            1 |
++------+--------------+
+4 rows in set (0.00 sec)
