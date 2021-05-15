@@ -160,3 +160,13 @@ mysql> SELECT addressBookType, count(*) FROM addressBook GROUP BY addressBookTyp
 | FRIENDS         |        1 |
 +-----------------+----------+
 3 rows in set (0.00 sec)
+
+#usecase11
+
+mysql> INSERT INTO addressBook VALUES
+    -> ('Ross','Tron','QWYT','NYC','Yui',12543,9874327392,'ross123@gmail.com','AddressBook 3','FRIENDS');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO addressBook VALUES
+    -> ('Rach','Gren','IOPS','NYC','Yukl',8943,9878737703,'greenr123@gmail.com','AddressBook 4','FAMILY');
+Query OK, 1 row affected (0.01 sec)
