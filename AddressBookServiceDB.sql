@@ -54,3 +54,11 @@ mysql> INSERT INTO addressBook VALUES
     -> ('Chandler','Bong','Pkhda','Pqr','PQR',9862,8791824823,'Bong123@gmail.com');
 Query OK, 5 rows affected (0.02 sec)
 Records: 5  Duplicates: 0  Warnings: 0
+
+#usecase4
+
+mysql> UPDATE addressBook
+    -> SET zipCode = 9832
+    -> WHERE firstName = 'Pheebs';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
