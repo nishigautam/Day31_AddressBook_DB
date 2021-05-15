@@ -112,3 +112,13 @@ mysql> SELECT city, COUNT(state) FROM addressBook GROUP BY state;
 | Mno  |            1 |
 +------+--------------+
 4 rows in set (0.00 sec)
+
+#usecase8
+
+mysql> SELECT * FROM addressBook WHERE city = 'Xyz' ORDER BY firstName;
++-----------+----------+---------+------+-------+---------+-------------+---------------------+
+| firstName | lastName | address | city | state | zipCode | phoneNumber | email               |
++-----------+----------+---------+------+-------+---------+-------------+---------------------+
+| Monica    | Mon      | ZCXCNd  | Xyz  | XYZ   |    7953 |  9869869866 | Monica123@gmail.com |
++-----------+----------+---------+------+-------+---------+-------------+---------------------+
+1 row in set (0.00 sec)
