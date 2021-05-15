@@ -122,3 +122,29 @@ mysql> SELECT * FROM addressBook WHERE city = 'Xyz' ORDER BY firstName;
 | Monica    | Mon      | ZCXCNd  | Xyz  | XYZ   |    7953 |  9869869866 | Monica123@gmail.com |
 +-----------+----------+---------+------+-------+---------+-------------+---------------------+
 1 row in set (0.00 sec)
+
+#usecsae9
+
+mysql> ALTER TABLE addressBook ADD addressBookName VARCHAR(100) AFTER email;
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE addressBook ADD addressBookType VARCHAR(100) AFTER addressBookName;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookName = 'AddressBook 1' WHERE firstName = 'Monica';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookType = 'FRIENDS' WHERE firstName = 'Monica';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookName = 'AddressBook 2' WHERE firstName = 'Joey';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookType = 'FAMILY' WHERE firstName = 'Joey';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
