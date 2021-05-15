@@ -148,3 +148,15 @@ Rows matched: 1  Changed: 1  Warnings: 0
 mysql> UPDATE addressBook SET addressBookType = 'FAMILY' WHERE firstName = 'Joey';
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
+
+#usecase10
+
+mysql> SELECT addressBookType, count(*) FROM addressBook GROUP BY addressBookType;
++-----------------+----------+
+| addressBookType | count(*) |
++-----------------+----------+
+| NULL            |        2 |
+| FAMILY          |        1 |
+| FRIENDS         |        1 |
++-----------------+----------+
+3 rows in set (0.00 sec)
