@@ -43,3 +43,14 @@ mysql> DESCRIBE addressBook;
 | email       | varchar(100) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.04 sec)
+
+#usecase3
+
+mysql> INSERT INTO addressBook VALUES
+    -> ('Nishi','Gautam','Mayr Resident','Lko','Uttar Pradesh',4578,9843218975,'nishi123@gmail.com'),
+    -> ('Joey','Joe','Abcdef','Abc','ABC',7878,9875929865,'Joey123@gmail.com'),
+    -> ('Monica','Mon','ZCXCNd','Xyz','XYZ',7953,9869869866,'Monica123@gmail.com'),
+    -> ('Pheebs','Regina','hjgdfa','Mno','MNO',9806,7859429793,'Pheebs123@gmail.com'),
+    -> ('Chandler','Bong','Pkhda','Pqr','PQR',9862,8791824823,'Bong123@gmail.com');
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
