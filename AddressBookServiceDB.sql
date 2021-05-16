@@ -277,3 +277,29 @@ mysql> INSERT INTO user_contacttypelink VALUES
     -> (1,10),
     -> (2,100),
     -> (3,101);
+
+#usecase13
+
+mysql> SELECT * FROM (users INNER JOIN location ON users.user_id=location.user_id) WHERE city='OP' or state='Pune';
++---------+-----------+----------+---------+---------+------+-------+---------+
+| user_id | firstName | lastName | user_id | address | city | state | zipCode |
++---------+-----------+----------+---------+---------+------+-------+---------+
+|       3 | Stef      | Kingham  |       3 | Sam     | OP   | Pune  |   89692 |
++---------+-----------+----------+---------+---------+------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT count(users.user_id) FROM users INNER JOIN location ON users.user_id=location.user_id WHERE city='Iyer' ORDER BY state='Pune';
++----------------------+
+| count(users.user_id) |
++----------------------+
+|                    1 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM users INNER JOIN location ON users.user_id=location.user_id WHERE city='GAUTAM' ORDER BY firstName;
++---------+-----------+----------+---------+---------+--------+-------+---------+
+| user_id | firstName | lastName | user_id | address | city   | state | zipCode |
++---------+-----------+----------+---------+---------+--------+-------+---------+
+|       1 | Alan      | Ron      |       1 | Nish    | Gautam | Lko   |   78261 |
++---------+-----------+----------+---------+---------+--------+-------+---------+
+1 row in set (0.00 sec)
