@@ -170,3 +170,110 @@ Query OK, 1 row affected (0.01 sec)
 mysql> INSERT INTO addressBook VALUES
     -> ('Rach','Gren','IOPS','NYC','Yukl',8943,9878737703,'greenr123@gmail.com','AddressBook 4','FAMILY');
 Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM addressBook;
++-----------+----------+---------+------+-------+---------+-------------+---------------------+-----------------+-----------------+
+| firstName | lastName | address | city | state | zipCode | phoneNumber | email               | addressBookName | addressBookType |
++-----------+----------+---------+------+-------+---------+-------------+---------------------+-----------------+-----------------+
+| Chandler  | Bong     | Pkhda   | Pqr  | PQR   |    9862 |  8791824823 | Bong123@gmail.com   | NULL            | NULL            |
+| Joey      | Joe      | Abcdef  | Abc  | ABC   |    7878 |  9875929865 | Joey123@gmail.com   | AddressBook 2   | FAMILY          |
+| Monica    | Mon      | ZCXCNd  | Xyz  | XYZ   |    7953 |  9869869866 | Monica123@gmail.com | AddressBook 1   | FRIENDS         |
+| Pheebs    | Regina   | hjgdfa  | Mno  | MNO   |    9832 |  7859429793 | Pheebs123@gmail.com | NULL            | NULL            |
+| Rach      | Gren     | IOPS    | NYC  | Yukl  |    8943 |  9878737703 | greenr123@gmail.com | AddressBook 4   | FAMILY          |
+| Ross      | Tron     | QWYT    | NYC  | Yui   |   12543 |  9874327392 | ross123@gmail.com   | AddressBook 3   | FRIENDS         |
++-----------+----------+---------+------+-------+---------+-------------+---------------------+-----------------+-----------------+
+6 rows in set (0.04 sec)
+
+#usecase12
+
+mysql> CREATE TABLE users
+    -> (
+    -> user_id INT NOT NULL,
+    -> firstName VARCHAR(100) NOT NULL,
+    -> lastName VARCHAR(100) NOT NULL,
+    -> PRIMARY KEY (user_id)
+    -> );
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> CREATE TABLE location
+    -> (
+    -> user_id INT NOT NULL,
+    -> address VARCHAR(100) NOT NULL,
+    -> city VARCHAR(100) NOT NULL,
+    -> state VARCHAR(100) NOT NULL,
+    -> zipCode INT NOT NULL,
+    -> PRIMARY KEY (user_id) ,
+    -> FOREIGN KEY (user_id) REFERENCES users(user_id)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TABLE Contact
+    -> (
+    -> user_id INT,
+    -> phoneNumber BIGINT,
+    -> email VARCHAR(100),
+    -> FOREIGN KEY(user_id) REFERENCES users(user_id)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TABLE ContactType
+    -> (
+    -> type_id INT,
+    -> type_contact VARCHAR(100),
+    -> PRIMARY KEY (type_id)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE user_ContactTypeLink
+    -> (
+    -> user_id INT,
+    -> type_id INT,
+    -> FOREIGN KEY(user_id) REFERENCES users(user_id),
+    -> FOREIGN KEY(type_id) REFERENCES ContactType(type_id)
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> show tables;
++-------------------------------+
+| Tables_in_addressbook_service |
++-------------------------------+
+| addressbook                   |
+| contact                       |
+| contacttype                   |
+| location                      |
+| user_contacttypelink          |
+| users                         |
++-------------------------------+
+6 rows in set (0.03 sec)
+
+mysql> INSERT INTO users VALUES
+    -> (1, 'Alan', 'Ron'),
+    -> (2, 'Steve', 'Rogger'),
+    -> (3, 'Stef', 'Kingham');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO location VALUES
+    -> (1, 'Nish', 'Gautam', 'Lko', '78261'),
+    -> (2, 'Nita', 'Iyer', 'Delhi', '85873'),
+    -> (3, 'Sam', 'OP', 'Pune', '89692');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Contact VALUES
+    -> (1,'8158738923','Abc@gmail.com'),
+    -> (2,'8097625187','XYbc@gmail.com'),
+    -> (3,'9087352719','IOstac@gmail.com');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ContactType VALUES
+    -> (111,'FRIENDS'),
+    -> (222,'FAMILY');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO user_contacttypelink VALUES
+    -> (1,10),
+    -> (2,100),
+    -> (3,101);
